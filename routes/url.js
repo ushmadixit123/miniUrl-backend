@@ -6,7 +6,7 @@ import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-router.post('/shorten',authMiddleware, shortenUrl);
+router.post('/shorten', shortenUrl);
 router.get('/getUserUrls',authMiddleware, userUrls);
 router.get('/analytics',authMiddleware, getAnalytics)
 router.get('/:code', redirectUrl);

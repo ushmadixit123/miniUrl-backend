@@ -4,12 +4,12 @@ import { nanoid } from 'nanoid';
 import mongoose from 'mongoose';
 
 export const shortenUrl = async (req, res) => {
-  console.log(req.user)
+  // console.log(req?.user)
   const { longUrl } = req.body;
   const shortCode = nanoid(6);
 
   try {
-    const user_id = req.user.id;
+    const user_id = req?.user?.id || null;
     const newUrl = await Url.create({user_id, longUrl, shortCode });
     res.json({ shortUrl: `https://miniurl-backend.onrender.com/url/${shortCode}` });
   } catch (err) {
